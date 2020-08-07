@@ -1,37 +1,29 @@
-var mysql = require('mysql');
 require('dotenv').config();
-
-var connection;
-
-if (process.env.JAWSDB_URL) {
-    //database is on JawsDB
-    connection = mysql.createConnection(process.env.JAWSDB_URL);
-}
-else {
-    //database is local
-    var connection = mysql.createConnection({
-        multipleStatements: true, 
-        host: "localhost",
-
-        // Your port; if not 3306
-        port: 3306,
-
-        // Your username
-        user: "root",
-
-        // Your password
-        password: "SoccerLiberty2006!",
-        database: "burgers_db"
-
-    });
-}
-
-    connection.connect(function(err) {
-        if (err) {
-            console.error("error connecting: " + err.stack);
-            return;
-        }
-        console.log("connected as id " + connection.threadId);
-        });
-
-module.exports = connection;
+console.log(process.env);
+module.exports = {
+    development: {
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    // port: process.env.DB_PORT,
+    dialect: 'mysql',
+    },
+    test: {
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: 'mysql',
+    },
+    production: {
+    use_env_variable: 'JAWSDB_URL',
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    dialect: 'mysql',
+    },
+};
