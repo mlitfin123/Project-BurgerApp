@@ -2,7 +2,11 @@ var mysql = require('mysql');
 
 var connection;
 
-var connection = mysql.createConnection({
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else {
+    var connection = mysql.createConnection({
         multipleStatements: true, 
         host: "localhost",
 
@@ -17,6 +21,7 @@ var connection = mysql.createConnection({
         database: "burgers_db"
 
     });
+}
 
     connection.connect(function(err) {
         if (err) {
