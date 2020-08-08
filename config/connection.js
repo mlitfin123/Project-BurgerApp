@@ -1,5 +1,4 @@
 var mysql = require('mysql');
-require('dotenv').config();
 
 var connection;
 
@@ -9,7 +8,7 @@ if (process.env.JAWSDB_URL) {
 }
 else {
     //database is local
-    var connection = mysql.createConnection({
+    connection = mysql.createConnection({
         multipleStatements: true, 
         host: "localhost",
 
