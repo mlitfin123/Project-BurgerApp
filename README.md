@@ -4,7 +4,7 @@
 
 https://arcane-mountain-75010.herokuapp.com/
 
-<img src="images/burger_app_thumbnail.PNG">
+<img src="images/burger_app_thumbnail.PNG" height= "100">
 
 ## Description 
 A simple web application following the MVC paradigm (Model View Controller). This javascript application uses Node, Express, Handlebars, and SQL to display an interractive experience for the user. The user can manually enter a burger he or she would like to consume which then gets added to the database and displays on screen. Once the burger has been consumed the button can be clicked to have it added to the "Devoured" section. On the back-end the burger is updated in the database to reflect it has been consumed. If the user wishes he or she can then select the button to delete the burger from the database.
